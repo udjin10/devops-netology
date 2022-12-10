@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+regex1='^[[:graph:]]{,30}$'
+regex2='^\[[[:digit:]]{2,}-[[:alpha:]]{3,}-[[:digit:]]{2,}-[[:alpha:]]{3,}\]$'
+
+if ! grep -qE "$regex1" "$1"; then
+  echo "The commit message is longer than the allowed 30 characters."
+  exit 1
+elif ! grep -qE "$regex2" "$1"; then
+  echo "Commit message does not match the format [modulecode-modulename-lessoncode-lessonname]"
+  echo "modulecode and modulecode these are numbers of at least two digits."
+  echo "modulename and lessonname these are words of at least 3 characters."
+  exit 1
+fi
