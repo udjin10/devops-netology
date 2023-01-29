@@ -1,0 +1,27 @@
+{
+  "builders": [
+    {
+      "disk_type": "network-nvme",
+      "folder_id": "b1g13isi9ot5i1j4f1r0",
+      "image_description": "by packer",
+      "image_family": "centos",
+      "image_name": "centos-7-base",
+      "source_image_family": "centos-7",
+      "ssh_username": "centos",
+      "subnet_id": "e2ls9sl7g1ejdgo77d56",
+      "token": "y0_AgAAAAACUOXFAATuwQAAAADafC7gTs8jk9nwRySYYKO3xP2lJWvzxKA",
+      "type": "yandex",
+      "use_ipv4_nat": true,
+      "zone": "ru-central1-b"
+    }
+  ],
+  "provisioners": [
+    {
+      "inline": [
+        "sudo yum -y update",
+        "sudo yum -y install bridge-utils bind-utils iptables curl net-tools tcpdump rsync telnet openssh-server git"
+      ],
+      "type": "shell"
+    }
+  ]
+}

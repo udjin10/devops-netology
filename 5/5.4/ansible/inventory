@@ -1,0 +1,6 @@
+[nodes:children]
+manager
+
+[manager]
+vm01.mkv.cloud ansible_host=84.252.140.178 ansible_user=centos
+vm02.mkv.cloud ansible_host=158.160.21.48 ansible_user=centos
