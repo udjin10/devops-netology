@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+   postgres:
+      container_name: postgres
+      image: postgres:12
+      environment:
+        - POSTGRES_USER=mkv
+        - POSTGRES_PASSWORD=tmppass
+        - POSTGRES_DB=tempdb
+      volumes:
+         - /opt/stack/pg12/pg:/var/lib/postgresql/data
+         - /opt/stack/pg12/backup:/data/backup
+      ports:
+         - "5432:5432"
+      restart: always
