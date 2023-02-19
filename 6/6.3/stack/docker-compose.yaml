@@ -1,0 +1,17 @@
+version: '3.9'
+services:
+   mysql:
+      container_name: mysql
+      image:  mysql:8
+      environment:
+          - MYSQL_ROOT_PASSWORD=rootpass
+          - MYSQL_PASSWORD=tmppass
+          - MYSQL_USER=mkv
+          - MYSQL_DATABASE=test_db
+      volumes:
+         - /opt/stack/mysql/base:/var/lib/mysql
+         - /opt/stack/mysql/backup:/data/backup
+         - /opt/stack/mysql/backup/my.cnf:/etc/my.cnf
+      ports:
+         - "3306:3306"
+      restart: always
